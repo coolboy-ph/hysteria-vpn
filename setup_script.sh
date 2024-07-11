@@ -50,7 +50,7 @@ chmod 755 "$BINARY_NAME"
 openssl ecparam -genkey -name prime256v1 -out ca.key
 openssl req -new -x509 -days 36500 -key ca.key -out ca.crt -subj "/CN=bing.com"
 
-# Step 4: Prompt user for input
+# Step 4: Generate random port and password
 port=$((RANDOM + 10000))
 password=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 16 | head -n 1)
 
